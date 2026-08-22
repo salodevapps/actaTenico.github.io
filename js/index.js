@@ -462,7 +462,7 @@ if(contadorMat > 0){
   }
 
  if (textoCodSol.trim() !== "") { 
-    arrayPlantilla.push("💡 *Cod. Solucion* : "  +  '\n');
+    arrayPlantilla.push('\n'+ "💡 *Cod. Solucion* : "  +  '\n');
      arrayPlantilla.push(textoCodSol +  '\n');
   }
 
