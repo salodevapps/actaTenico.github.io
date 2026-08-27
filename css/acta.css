@@ -920,5 +920,13 @@ font-style: italic;
   }
 
 
+  /* TODO: COMEBTARIO IMPRESION */
+  .cont_impresion{
+    background-color: rgb(198, 151, 241);
+    border: 1px solid black;
+    width: 604px;
+    height: 50px;
+  }
+
 
 

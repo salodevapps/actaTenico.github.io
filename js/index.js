@@ -174,6 +174,9 @@ radioMigracion = document.getElementById("servicioMigracion");
   txtSnEquipoInstalado6 =document.getElementById("txtSnEquipoInstalado6");
   txtSnEquipoInstalado7 =document.getElementById("txtSnEquipoInstalado7");
 
+    txtObservacionesTecnico =document.getElementById("coment_tec");
+    cont_impresion =document.getElementById("cont_impresion");
+
 
 txtHoraInicio.value =`${hora-2}:${min}`;
 txtHoraTermino.value=`${hora}:${min}`;
@@ -520,7 +523,7 @@ radios.forEach(radio => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const inputs = document.querySelectorAll("input[type='text'], input[type='search'], textarea");
+  const inputs = document.querySelectorAll("input[type='text'], input[type='search']");
 
   inputs.forEach(input => {
     input.addEventListener("input", (e) => {
@@ -551,11 +554,18 @@ $("#txtFecha").val(fecha.toLocaleDateString());
           $objetivo = document.querySelector("#acta");
           $contenedorCanvas = document.querySelector("#contenedor_img_acta"); // En dónde ponemos el elemento canvas
     
-//    document.getElementById("mitextHolder").placeholder = "";
    document.getElementById("mitextHolder1").placeholder = "";
    document.getElementById("mitextHolder2").placeholder = "";
    document.getElementById("mitextHolder3").placeholder = "";
 
+   document.getElementById("cod1").placeholder = "";
+   document.getElementById("cod2").placeholder = "";
+   document.getElementById("cod3").placeholder = "";
+
+
+alert(txtObservacionesTecnico.value);
+cont_impresion.textContent  = txtObservacionesTecnico.value
+cont_impresion.style.textAlign = "justify";
 
 const texto = document.getElementById('coment_tec').value;
   document.getElementById('coment_tec').textContent = texto;
@@ -564,13 +574,13 @@ const texto = document.getElementById('coment_tec').value;
 
 
             //    convertir a mayuscula lis input text
-                const inputs = document.querySelectorAll("input[type='text'], input[type='search'], textarea");
+                // const inputs = document.querySelectorAll("input[type='text'], input[type='search']");
 
-                inputs.forEach(input => {
-                    input.addEventListener("input", (e) => {
-                    e.target.value = e.target.value.toUpperCase();
-                    });
-                });
+                // inputs.forEach(input => {
+                //     input.addEventListener("input", (e) => {
+                //     e.target.value = e.target.value.toUpperCase();
+                //     });
+                // });
           html2canvas($objetivo,{
               dpi    : window.devicePixelRatio*1,
               scale  :1.5,
