@@ -51,6 +51,9 @@ radioInstalacion = document.getElementById("servicioInsta");
 radioPostVenta = document.getElementById("servicioPost"),
 radioManto = document.getElementById("servicioManto"),
 radioRetiroEquipos = document.getElementById("servicioRetiro");
+radioMigracion = document.getElementById("servicioMigracion");
+
+// servicioMigracion
 // radioInstalacion = document.getElementById("servicioInsta"),
 
 
@@ -180,355 +183,324 @@ txtHoraTermino.value=`${hora}:${min}`;
       
 btnCopiar.addEventListener("click", e=>{
 
-if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || radioRetiroEquipos.checked){
+if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || radioRetiroEquipos.checked || radioMigracion.checked){
     alert("GO")
 
+                
+                        serie1Copiado = txtSnEquipoInstalado1.value
+                        serie2Copiado = txtSnEquipoInstalado2.value
+                        serie3Copiado = txtSnEquipoInstalado3.value
+                        serie4Copiado = txtSnEquipoInstalado4.value
+                        serie5Copiado = txtSnEquipoInstalado5.value
+                        serie6Copiado = txtSnEquipoInstalado6.value
+                        serie7Copiado = txtSnEquipoInstalado7.value
+                        serie8Copiado = txtSnEquipoInstalado8.value
+                        serie9Copiado = txtSnEquipoInstalado9.value
+                        serie10Copiado = txtSnEquipoInstalado10.value
 
 
 
-     
-            serie1Copiado = txtSnEquipoInstalado1.value
-            serie2Copiado = txtSnEquipoInstalado2.value
-            serie3Copiado = txtSnEquipoInstalado3.value
-            serie4Copiado = txtSnEquipoInstalado4.value
-            serie5Copiado = txtSnEquipoInstalado5.value
-            serie6Copiado = txtSnEquipoInstalado6.value
-            serie7Copiado = txtSnEquipoInstalado7.value
-            serie8Copiado = txtSnEquipoInstalado8.value
-            serie9Copiado = txtSnEquipoInstalado9.value
-            // serie10Copiado = txtSnEquipoInstalado10.value
+                        let equipos_instalados = [];
+                        let equipos_retirados = [];
 
+                            if(radioInstalado1.checked==true){
+                                    equipos_instalados.push("✔ " + serie1Copiado)
+                            }else if(radioRetirado1.checked==true){
+                                    equipos_retirados.push("✔ " + serie1Copiado)
+                            }
 
+                            if(radioInstalado2.checked==true){
+                                equipos_instalados.push("✔ " + serie2Copiado)
+                            }else if(radioRetirado2.checked==true){
+                                equipos_retirados.push("✔ " + serie2Copiado)
+                            }
 
-            let equipos_instalados = [];
-            let equipos_retirados = [];
+                            if(radioInstalado3.checked==true){
+                                equipos_instalados.push("✔ " + serie3Copiado)
+                            }else if(radioRetirado3.checked==true){
+                                equipos_retirados.push("✔ " + serie3Copiado)
+                            }
 
-           if(radioInstalado1.checked==true){
-                   equipos_instalados.push("✔ " + serie1Copiado)
-            }else if(radioRetirado1.checked==true){
-                   equipos_retirados.push("✔ " + serie1Copiado)
-            }
+                            if(radioInstalado4.checked==true){
+                                equipos_instalados.push("✔ " + serie4Copiado)
+                            }else if(radioRetirado4.checked==true){
+                                equipos_retirados.push("✔ " + serie4Copiado)
+                            }
 
-                if(radioInstalado2.checked==true){
-                    equipos_instalados.push("✔ " + serie2Copiado)
-                }else if(radioRetirado2.checked==true){
-                    equipos_retirados.push("✔ " + serie2Copiado)
-                }
+                            if(radioInstalado5.checked==true){
+                                equipos_instalados.push("✔ " + serie5Copiado)
+                            }else if(radioRetirado5.checked==true){
+                                equipos_retirados.push("✔ " + serie5Copiado)
+                            }
 
-                if(radioInstalado3.checked==true){
-                    equipos_instalados.push("✔ " + serie3Copiado)
-                }else if(radioRetirado3.checked==true){
-                    equipos_retirados.push("✔ " + serie3Copiado)
-                }
+                            if(radioInstalado6.checked==true){
+                                equipos_instalados.push("✔ " + serie6Copiado)
+                            }else if(radioRetirado6.checked==true){
+                                equipos_retirados.push("✔ " + serie6Copiado)
+                            }
 
-                if(radioInstalado4.checked==true){
-                    equipos_instalados.push("✔ " + serie4Copiado)
-                }else if(radioRetirado4.checked==true){
-                    equipos_retirados.push("✔ " + serie4Copiado)
-                }
+                            if(radioInstalado7.checked==true){
+                                equipos_instalados.push("✔ " + serie7Copiado)
+                            }else if(radioRetirado7.checked==true){
+                                equipos_retirados.push("✔ " + serie7Copiado)
+                            }
 
-                if(radioInstalado5.checked==true){
-                    equipos_instalados.push("✔ " + serie5Copiado)
-                }else if(radioRetirado5.checked==true){
-                    equipos_retirados.push("✔ " + serie5Copiado)
-                }
+                            if(radioInstalado8.checked==true){
+                                equipos_instalados.push("✔ " + serie8Copiado)
+                            }else if(radioRetirado8.checked==true){
+                                equipos_retirados.push("✔ " + serie8Copiado)
+                            }
 
-                if(radioInstalado6.checked==true){
-                    equipos_instalados.push("✔ " + serie6Copiado)
-                }else if(radioRetirado6.checked==true){
-                    equipos_retirados.push("✔ " + serie6Copiado)
-                }
+                            if(radioInstalado9.checked==true){
+                                equipos_instalados.push("✔ " + serie9Copiado)
+                            }else if(radioRetirado9.checked==true){
+                                equipos_retirados.push("✔ " + serie9Copiado)
+                            }
 
-                if(radioInstalado7.checked==true){
-                    equipos_instalados.push("✔ " + serie7Copiado)
-                }else if(radioRetirado7.checked==true){
-                    equipos_retirados.push("✔ " + serie7Copiado)
-                }
+                            if(radioInstalado10.checked==true){
+                                equipos_instalados.push("✔ " + serie10Copiado)
+                            }else if(radioRetirado10.checked==true){
+                                equipos_retirados.push("✔ " + serie10Copiado)
+                            }
 
-                if(radioInstalado8.checked==true){
-                    equipos_instalados.push("✔ " + serie8Copiado)
-                }else if(radioRetirado8.checked==true){
-                    equipos_retirados.push("✔ " + serie8Copiado)
-                }
+                            var textoSeriesInstalados =equipos_instalados.join('\n')
+                            var textoSeriesRetirados =equipos_retirados.join('\n')
+                            textoSeriesInstalados.replaceAll(',', '');
+                            textoSeriesRetirados.replaceAll(',', '');
 
-                if(radioInstalado9.checked==true){
-                    equipos_instalados.push("✔ " + serie9Copiado)
-                }else if(radioRetirado9.checked==true){
-                    equipos_retirados.push("✔ " + serie9Copiado)
-                }
+                        
+                        // alert(textoSeriesInstalados)
 
-                if(radioInstalado10.checked==true){
-                    equipos_instalados.push("✔ " + serie10Copiado)
-                }else if(radioRetirado10.checked==true){
-                    equipos_retirados.push("✔ " + serie10Copiado)
-                }
+                        // alert(textoSeriesRetirados)
 
- 
-
-
-      var textoSeriesInstalados =equipos_instalados.join('\n')
-      var textoSeriesRetirados =equipos_retirados.join('\n')
-
-              textoSeriesInstalados.replaceAll(',', '');
-               textoSeriesRetirados.replaceAll(',', '');
-
-               
-            // alert(textoSeriesInstalados)
-
-            // alert(textoSeriesRetirados)
-
-                let contadorMat = 0;
-                 let arrayFerreteria = [];
-            if (txtCableCoaxialNegro.value.trim() !== "") { 
-                  arrayFerreteria.push( "✔ " + txtCableCoaxialNegro.value + "m "+  labelCableCoaxialNegro.trimStart().trimEnd()); 
-contadorMat++
-                }
-            if (txtCableCoaxialBlanco.value.trim() !== "") {
-                  arrayFerreteria.push( "✔ " + txtCableCoaxialBlanco.value + "m "+  labelCableCoaxialBlanco.trimStart().trimEnd());
-contadorMat++
-                }
-          
-            if (txtCableTelefonico.value.trim() !== "") {
-                arrayFerreteria.push( "✔ " + txtCableTelefonico.value + "m "+ labelCableTelefonico.trimStart().trimEnd());
-contadorMat++
-            }
-          
-            if (txtCableUtp.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtCableUtp.value + "m "+labelCableUtp.trimStart().trimEnd());
-contadorMat++
-            }
-
-             if (txtCableIndor.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtCableIndor.value + "m "+labelCableIndor.trimStart().trimEnd());
-contadorMat++
-            }
-             if (txtRj11.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtRj11.value + " "+labelRj11.trimStart().trimEnd());
-contadorMat++
-            }
-             if (txtRj45.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtRj45.value + " "+labelRj45.trimStart().trimEnd());
-contadorMat++
-            }
-             if (txtConectorRg6.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtConectorRg6.value + " "+labelConectorRg6.trimStart().trimEnd());
-contadorMat++
-            }
-             if (txtConectorOPT.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtConectorOPT.value + " "+labelConectorOPT.trimStart().trimEnd());
-contadorMat++
-            }
-             if (txtCableAPC.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtCableAPC.value + " "+labelCableAPC.trimStart().trimEnd());
-contadorMat++
-            }
-             if (txtControlRemotoHFC.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtControlRemotoHFC.value + " "+labelControlRemotoHFC.trimStart().trimEnd());
-contadorMat++
-            }
-             if (txtCableHDMI.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtCableHDMI.value + " "+labelCableHDMI.trimStart().trimEnd());
-contadorMat++
-            }
-
-              if (txtRosetaOPT.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtRosetaOPT.value + " "+labelRosetaOPT.trimStart().trimEnd());
-contadorMat++
-            }
-              if (txtAnclajeP.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtAnclajeP.value + " "+labelAnclajeP.trimStart().trimEnd());
-contadorMat++
-            }
-              if (txtTelefono.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtTelefono.value + " "+labelTelefono.trimStart().trimEnd());
-contadorMat++
-            }
-              if (txtChapaQ.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtChapaQ.value + " "+labelChapaQ.trimStart().trimEnd());
-contadorMat++
-            }
-
-
-             if (txtDivisor2v.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtDivisor2v.value + " "+labelDivisor.trimStart().trimEnd()+ " 2v ") ;
-contadorMat++
-            }
-            if (txtDivisor3v.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtDivisor3v.value + " "+labelDivisor.trimStart().trimEnd()+ " 3v ") ;
-                contadorMat++ 
-            }
-
-
-
-
-
-              if (txtCintilloRojo.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtCintilloRojo.value + " "+labelCintilloRojo.trimStart().trimEnd());
-                 contadorMat++
-            }
-              if (txtCintillosNegro.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtCintillosNegro.value + " "+labelCintillosNegro.trimStart().trimEnd());
-                 contadorMat++
-            }
-              if (txtGrapasN8.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtGrapasN8.value + " "+labelGrapasN8.trimStart().trimEnd());
-                 contadorMat++
-            }
-              if (txtGrapasN6.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtGrapasN6.value + " "+labelGrapasN6.trimStart().trimEnd());
-                 contadorMat++
-            }
-              if (txtControlFTTH.value.trim() !== "") {
-                 arrayFerreteria.push( "✔ " + txtControlFTTH.value + " "+labelControlFTTH.trimStart().trimEnd());
-                 contadorMat++
-            }
-
-            let radioDropSeleccionado  = '';
-            radiosDrop.forEach(radio => {
-                if (radio.checked) {
-                    radioDropSeleccionado = radio.value;
-                }
-            });
-
-            if (radioDropSeleccionado.trim() !== "") {
-                 arrayFerreteria.push( "✔ 1 Drop de " + radioDropSeleccionado);
-                 contadorMat++
-            }
-
-
-
-             let radioServicioRealizado  = '';
-            servicioRealizado.forEach(radio => {
-                if (radio.checked) {
-                    radioServicioRealizado = radio.value;
-                }
-            });
-
-            console.log(radioServicioRealizado)
-
-            let arrayCodSol = [];
-            if (radioServicioRealizado.trim() == "manto") {
-
-                if (txtCodSolucion1.value.trim() !== "" ||txtCodSolucion2.value.trim() !== "") { 
-                     // codSol =txtCodSolucion1.value
-                      if (txtCodSolucion1.value.trim() !== "") {
-                            arrayCodSol.push( "✔  " + txtCodSolucion1.value );
-                       }
-                       if (txtCodSolucion2.value.trim() !== "") {
-                            arrayCodSol.push( "✔  " + txtCodSolucion2.value );
-                       }
-                         var textoCodSol =arrayCodSol.join('\n')
-                        textoCodSol.replaceAll(',','');
-                        console.log(textoCodSol);
-                }else{ 
-                            alert('Ingrese por lo menos 1 cod. solucion');
-                }
-
-
-
-               
-            }
-          
-     var textoArrayFerreteria =arrayFerreteria.join('\n')
-     textoArrayFerreteria.replaceAll(',','');
-
-if(contadorMat > 0){
-    console.log(textoArrayFerreteria);
-}else{
-    console.log('no hay mat')
-}
-
-// alert(textoarrayFerreteria);
-       
-// construyendo plantilla
-
-  let arrayPlantilla = [];
-
-  if (sotActa.value.trim() !== "") { 
-     arrayPlantilla.push("📄 *Sot* : "  + sotActa.value);
-  }
-
-  if (fechaActa.value.trim() !== "") { 
-     arrayPlantilla.push("📅 *Fecha* : "  + fechaActa.value);
-  }
-
-  if (tecnicoActa.value.trim() !== "") { 
-          const nombreArray = tecnicoActa.value.split(" ");
-       const mostrarNombre = nombreArray.slice(0, 2).join(" ");
-         arrayPlantilla.push("👷 *Técnico* : "  + mostrarNombre );
-  }
- if (cintilloActa.value.trim() !== "") { 
-     arrayPlantilla.push("🏷️*Nº Cintillo* : "  + cintilloActa.value );
-  }
-
- if (textoCodSol.trim() !== "") { 
-    arrayPlantilla.push('\n'+ "💡 *Cod. Solucion* : "  +  '\n');
-     arrayPlantilla.push(textoCodSol +  '\n');
-  }
-
-   if (textoSeriesInstalados.trim() !== "") { 
-      arrayPlantilla.push("🔁 *EQ Instalados* : "  +  '\n');
-      arrayPlantilla.push(textoSeriesInstalados+  '\n');
-   }
-
-   if (textoSeriesRetirados.trim() !== "") { 
-      arrayPlantilla.push("🔁 *EQ Retirados* : "  +  '\n');
-      arrayPlantilla.push(textoSeriesRetirados+  '\n');
-   }
-
-    if (textoArrayFerreteria.trim() !== "") { 
-      arrayPlantilla.push("📦 *Materiales* : "  +  '\n');
-      arrayPlantilla.push(textoArrayFerreteria+  '\n');
-   }
-
-    //  arrayPlantilla.replaceAll(',','');
-    //  arrayPlantilla.replaceAll(',','');
-      var textoArrayPlantilla =arrayPlantilla.join('\n')
-console.log(arrayPlantilla)
-let  texto  = navigator.clipboard.writeText( 
-textoArrayPlantilla
-
-)
-
-
-
-
-
-
-
-                //  let  texto  = navigator.clipboard.writeText(
-                //         "*SOT:* _"+ sotActa.value +"_\n"+
-                //         "*FECHAAAA:* _"+fechaActa.value + "_\n"+
+                            let contadorMat = 0;
+                            let arrayFerreteria = [];
+                        if (txtCableCoaxialNegro.value.trim() !== "") { 
+                            arrayFerreteria.push( "✔ " + txtCableCoaxialNegro.value + "m "+  labelCableCoaxialNegro.trimStart().trimEnd()); 
+            contadorMat++
+                            }
+                        if (txtCableCoaxialBlanco.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtCableCoaxialBlanco.value + "m "+  labelCableCoaxialBlanco.trimStart().trimEnd());
+            contadorMat++
+                            }
                     
+                        if (txtCableTelefonico.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtCableTelefonico.value + "m "+ labelCableTelefonico.trimStart().trimEnd());
+            contadorMat++
+                        }
+                    
+                        if (txtCableUtp.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtCableUtp.value + "m "+labelCableUtp.trimStart().trimEnd());
+            contadorMat++
+                        }
 
-                //         // "*S/N EQ. INSTALADO:* "+equipos_instalados+
-                        
-                        
-                //             equipos_instalados.forEach(function(entry) {
-                //                 //  console.log(entry + "_\n");
-                //                 "*S/N EQ. INSTALADO:* "+JSON.stringify( entry) +"_\n"
-                //             })
-                        
-                        
-                //         + 
+                        if (txtCableIndor.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtCableIndor.value + "m "+labelCableIndor.trimStart().trimEnd());
+            contadorMat++
+                        }
+                        if (txtRj11.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtRj11.value + " "+labelRj11.trimStart().trimEnd());
+            contadorMat++
+                        }
+                        if (txtRj45.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtRj45.value + " "+labelRj45.trimStart().trimEnd());
+            contadorMat++
+                        }
+                        if (txtConectorRg6.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtConectorRg6.value + " "+labelConectorRg6.trimStart().trimEnd());
+            contadorMat++
+                        }
+                        if (txtConectorOPT.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtConectorOPT.value + " "+labelConectorOPT.trimStart().trimEnd());
+            contadorMat++
+                        }
+                        if (txtCableAPC.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtCableAPC.value + " "+labelCableAPC.trimStart().trimEnd());
+            contadorMat++
+                        }
+                        if (txtControlRemotoHFC.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtControlRemotoHFC.value + " "+labelControlRemotoHFC.trimStart().trimEnd());
+            contadorMat++
+                        }
+                        if (txtCableHDMI.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtCableHDMI.value + " "+labelCableHDMI.trimStart().trimEnd());
+            contadorMat++
+                        }
 
-                //         "*S/N EQ. RETIRADO:* "+ equipos_retirados  + "\n"+
+                        if (txtRosetaOPT.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtRosetaOPT.value + " "+labelRosetaOPT.trimStart().trimEnd());
+            contadorMat++
+                        }
+                        if (txtAnclajeP.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtAnclajeP.value + " "+labelAnclajeP.trimStart().trimEnd());
+            contadorMat++
+                        }
+                        if (txtTelefono.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtTelefono.value + " "+labelTelefono.trimStart().trimEnd());
+            contadorMat++
+                        }
+                        if (txtChapaQ.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtChapaQ.value + " "+labelChapaQ.trimStart().trimEnd());
+            contadorMat++
+                        }
 
-                //         "*CINTILLO INST:* "+cintilloActa.value + "\n"
-    
-                // )
 
-}
-
-
-
-
-
-
+                        if (txtDivisor2v.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtDivisor2v.value + " "+labelDivisor.trimStart().trimEnd()+ " 2v ") ;
+            contadorMat++
+                        }
+                        if (txtDivisor3v.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtDivisor3v.value + " "+labelDivisor.trimStart().trimEnd()+ " 3v ") ;
+                            contadorMat++ 
+                        }
 
 
+
+
+
+                        if (txtCintilloRojo.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtCintilloRojo.value + " "+labelCintilloRojo.trimStart().trimEnd());
+                            contadorMat++
+                        }
+                        if (txtCintillosNegro.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtCintillosNegro.value + " "+labelCintillosNegro.trimStart().trimEnd());
+                            contadorMat++
+                        }
+                        if (txtGrapasN8.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtGrapasN8.value + " "+labelGrapasN8.trimStart().trimEnd());
+                            contadorMat++
+                        }
+                        if (txtGrapasN6.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtGrapasN6.value + " "+labelGrapasN6.trimStart().trimEnd());
+                            contadorMat++
+                        }
+                        if (txtControlFTTH.value.trim() !== "") {
+                            arrayFerreteria.push( "✔ " + txtControlFTTH.value + " "+labelControlFTTH.trimStart().trimEnd());
+                            contadorMat++
+                        }
+
+                        let radioDropSeleccionado  = '';
+                        radiosDrop.forEach(radio => {
+                            if (radio.checked) {
+                                radioDropSeleccionado = radio.value;
+                            }
+                        });
+
+                        if (radioDropSeleccionado.trim() !== "") {
+                            arrayFerreteria.push( "✔ 1 Drop de " + radioDropSeleccionado);
+                            contadorMat++
+                        }
+
+
+
+                        let radioServicioRealizado  = '';
+                        servicioRealizado.forEach(radio => {
+                            if (radio.checked) {
+                                radioServicioRealizado = radio.value;
+                            }
+                        });
+
+                        console.log(radioServicioRealizado)
+
+
+
+                        let arrayCodSol = [];
+                        if (radioServicioRealizado.trim() == "manto") {
+
+                            if (txtCodSolucion1.value.trim() !== "" ||txtCodSolucion2.value.trim() !== "") { 
+                                // codSol =txtCodSolucion1.value
+                                if (txtCodSolucion1.value.trim() !== "") {
+                                        arrayCodSol.push( "✔  " + txtCodSolucion1.value );
+                                }
+                                if (txtCodSolucion2.value.trim() !== "") {
+                                        arrayCodSol.push( "✔  " + txtCodSolucion2.value );
+                                }
+                                    var textoCodSol =arrayCodSol.join('\n')
+                                    textoCodSol.replaceAll(',','');
+                                    console.log(textoCodSol);
+                            }else{ 
+                                        alert('Ingrese por lo menos 1 cod. solucion');
+                            }
+                        }
+
+
+
+                    
+                var textoArrayFerreteria =arrayFerreteria.join('\n')
+                textoArrayFerreteria.replaceAll(',','');
+
+            if(contadorMat > 0){
+                console.log(textoArrayFerreteria);
+            }else{
+                console.log('no hay mat')
+            }
+
+            // alert(textoarrayFerreteria);
+                
+            // construyendo plantilla
+
+            let arrayPlantilla = [];
+
+            if (sotActa.value.trim() !== "") { 
+                arrayPlantilla.push("📄 *Sot* : "  + sotActa.value);
+            }else{
+                
+               alert("Digite el Nº SOT");
+            
+                 return false;
+            }
+
+            if (fechaActa.value.trim() !== "") { 
+                arrayPlantilla.push("📅 *Fecha* : "  + fechaActa.value);
+            }
+
+            if (tecnicoActa.value.trim() !== "") { 
+                    const nombreArray = tecnicoActa.value.split(" ");
+                const mostrarNombre = nombreArray.slice(0, 2).join(" ");
+                    arrayPlantilla.push("👷 *Técnico* : "  + mostrarNombre );
+            }
+            if (cintilloActa.value.trim() !== "") { 
+                arrayPlantilla.push("🏷️*Nº Cintillo* : "  + cintilloActa.value );
+            }
+
+
+            if (radioServicioRealizado.trim() == "manto") {
+                        if (textoCodSol.trim() !== "") { 
+                            arrayPlantilla.push('\n'+ "💡 *Cod. Solucion* : "  +  '\n');
+                            arrayPlantilla.push(textoCodSol +  '\n');
+                        }
+            }
+
+
+            if (textoSeriesInstalados.trim() !== "") { 
+                arrayPlantilla.push("🔁 *EQ Instalados* : "  +  '\n');
+                arrayPlantilla.push(textoSeriesInstalados+  '\n');
+            }
+
+            if (textoSeriesRetirados.trim() !== "") { 
+                arrayPlantilla.push("🔁 *EQ Retirados* : "  +  '\n');
+                arrayPlantilla.push(textoSeriesRetirados+  '\n');
+            }
+
+                if (textoArrayFerreteria.trim() !== "") { 
+                arrayPlantilla.push("📦 *Materiales* : "  +  '\n');
+                arrayPlantilla.push(textoArrayFerreteria+  '\n');
+            }
+
+                //  arrayPlantilla.replaceAll(',','');
+                //  arrayPlantilla.replaceAll(',','');
+            var textoArrayPlantilla =arrayPlantilla.join('\n')
+            console.log(arrayPlantilla)
+            
+            let  texto  = navigator.clipboard.writeText( 
+            textoArrayPlantilla
+
+            )
+
+            }
 
 })
+// TODO: FIN BOTON COPIAR A PORTAPAPELES
 
 const radios = document.querySelectorAll('input[type="radio"]');
 
