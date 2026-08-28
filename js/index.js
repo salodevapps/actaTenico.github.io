@@ -452,17 +452,50 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                 console.log('no hay mat')
             }
 
-            // alert(textoarrayFerreteria);
-                
-            // construyendo plantilla
+          
+
+            let arrayCodAutorizacion = [];
+            let contadorCodAutorizacion =0;
+            if (txtCodigoAutorizacion1.value.trim() !== "") { 
+                arrayCodAutorizacion.push("✔️  *"+ labelCodigoAutorizacion1.value +"* : "  + txtCodigoAutorizacion1.value);
+                contadorCodAutorizacion++;
+            }
+            if (txtCodigoAutorizacion2.value.trim() !== "") { 
+                arrayCodAutorizacion.push("✔️  *"+ labelCodigoAutorizacion2.value +"* : "  + txtCodigoAutorizacion2.value);
+                contadorCodAutorizacion++;
+            }
+            if (txtCodigoAutorizacion3.value.trim() !== "") { 
+                arrayCodAutorizacion.push("✔️  *"+ labelCodigoAutorizacion3.value +"* : "  + txtCodigoAutorizacion3.value);
+                contadorCodAutorizacion++;
+            }
+                var textoarrayCodAutorizacion =arrayCodAutorizacion.join('\n')
+                textoarrayCodAutorizacion.replaceAll(',','');
+
+        
+
+
+
 
             let arrayPlantilla = [];
 
             if (sotActa.value.trim() !== "") { 
-                arrayPlantilla.push("🗃️​  *Sot* : "  + sotActa.value);
+                arrayPlantilla.push("📌​  *Sot* : "  + sotActa.value);
             }else{
                 
-               alert("Digite el Nº SOT");
+               Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                }).fire({
+                icon: "error",
+                title: "Digite nuemro sot"
+                });
             
                  return false;
             }
@@ -527,19 +560,13 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
             }
 
 
-            if (txtCodigoAutorizacion1.value.trim() !== "") { 
-                arrayPlantilla.push("🔑  *"+ labelCodigoAutorizacion1.value +"* : "  + txtCodigoAutorizacion1.value+'\n');
-                // arrayPlantilla.push(textoArrayFerreteria+  '\n');
+            if(contadorCodAutorizacion > 0){
+            console.log(textoarrayCodAutorizacion);
+                arrayPlantilla.push("🔑  *Código Autorizacion* : "  +  '\n');
+                arrayPlantilla.push(textoarrayCodAutorizacion+  '\n');
+            }else{
+                console.log('no hay mat')
             }
-            if (txtCodigoAutorizacion2.value.trim() !== "") { 
-                arrayPlantilla.push("🔑  *"+ labelCodigoAutorizacion2.value +"* : "  + txtCodigoAutorizacion2.value+'\n');
-                // arrayPlantilla.push(textoArrayFerreteria+  '\n');
-            }
-            if (txtCodigoAutorizacion3.value.trim() !== "") { 
-                arrayPlantilla.push("🔑  *"+ labelCodigoAutorizacion3.value +"* : "  + txtCodigoAutorizacion3.value+'\n');
-                // arrayPlantilla.push(textoArrayFerreteria+  '\n');
-            }
-
 
 
 
