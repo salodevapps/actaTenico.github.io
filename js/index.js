@@ -22,8 +22,24 @@
 // "•	*MAT. NO RECURRENTE (drop,switch):*"
 // "•	*COD. DE AUTORIZACIÓN:*"
 // "•	*OBSERVACION (derivaciones):*"; 
+$(document).ready(function() {
+    Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                }).fire({
+                icon: "error",
+                title: "Digite nuemro sot"
+                });
+});
 
-
+ 
 
 const btnCopiar = document.getElementById("btnCopiarPortapapeles"),
       plantillaWSP = document.getElementById("plantilla"),
