@@ -32,7 +32,7 @@ textarea{
     font-family: 'OpenRegular';
     font-size: 13px;
     border: 1px solid black;
-    resize:inherit;
+    /* resize:inherit; */
     overflow: auto;
 }
 input[type=text]{
@@ -533,18 +533,17 @@ exto{
 .cont_cometario_final{
     display: flex;
 }
-.cont_cometario_final p{
-    margin: 0px;
-    margin-top: 3px;
-}
+
 .cont_cometario_final .tecnico{
-    width: 600px;
+    width: 580px;
     margin-right: 5px;
-    height: 50px;
+    height: 80px;
+    padding: 8px;
 }
 .cont_cometario_final .cliente{
     width: 334px;
-    height: 50px;
+    height: 80px;
+    padding: 8px;
 }
 
 .cont_cometario_final .cont_cliente,.cont_cometario_final .cont_tecnico{
@@ -689,6 +688,11 @@ border-left: 1px solid black;
     /* border: 1px solid black; */
     text-align: left;
 }
+
+
+
+
+
 
 .cont_firmas input{
       text-transform: uppercase;
@@ -922,11 +926,28 @@ font-style: italic;
 
   /* TODO: COMEBTARIO IMPRESION */
   .cont_impresion{
-    background-color: rgb(198, 151, 241);
+    /* background-color: rgb(198, 151, 241); */
     border: 1px solid black;
-    width: 604px;
-    height: 50px;
+    width: 580px;
+    height: 95px;
+    margin-right: 10px;
+    text-align: justify;
+    overflow-wrap: break-word;
+    margin-top: -0px;
+    display:none ;
+    padding: 4px;
+    font-style: italic;
+
+/* word-break: break-word; */
+  /* line-break: normal; */
+  /* hyphens: auto; */
   }
+
+  .cont_cometario_final .subtitulo_cometario{
+    margin-bottom: 0px;
+  }
+
+
 
 
 

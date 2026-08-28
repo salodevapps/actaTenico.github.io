@@ -99,6 +99,8 @@ radioMigracion = document.getElementById("servicioMigracion");
 
    const radiosDrop = document.querySelectorAll('input[name="drop"]');
 
+    const radiosServicioRealizado= document.querySelectorAll('input[name="servicioRealizado"]');
+
     labelCableCoaxialNegro = document.getElementById("labelCableCoaxialNegro").textContent;
     labelCableCoaxialBlanco = document.getElementById("labelCableCoaxialBlanco").textContent;
     labelCableTelefonico = document.getElementById("labelCableTelefonico").textContent;
@@ -169,10 +171,16 @@ radioMigracion = document.getElementById("servicioMigracion");
     txtSnEquipoInstalado9 =document.getElementById("txtSnEquipoInstalado9");
     txtSnEquipoInstalado10 =document.getElementById("txtSnEquipoInstalado10");
 
+    labelCodigoAutorizacion1 =document.getElementById("mitextHolder1");
+    labelCodigoAutorizacion2 =document.getElementById("mitextHolder2");
+    labelCodigoAutorizacion3 =document.getElementById("mitextHolder3");
 
+    txtCodigoAutorizacion1 =document.getElementById("txtCodigoAutorizacion1");
+    txtCodigoAutorizacion2 =document.getElementById("txtCodigoAutorizacion2");
+    txtCodigoAutorizacion3 =document.getElementById("txtCodigoAutorizacion3");
 
-  txtSnEquipoInstalado6 =document.getElementById("txtSnEquipoInstalado6");
-  txtSnEquipoInstalado7 =document.getElementById("txtSnEquipoInstalado7");
+//   txtSnEquipoInstalado6 =document.getElementById("txtSnEquipoInstalado6");
+//   txtSnEquipoInstalado7 =document.getElementById("txtSnEquipoInstalado7");
 
     txtObservacionesTecnico =document.getElementById("coment_tec");
     cont_impresion =document.getElementById("cont_impresion");
@@ -389,6 +397,12 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                             }
                         });
 
+       
+
+                        
+                     
+
+
                         if (radioDropSeleccionado.trim() !== "") {
                             arrayFerreteria.push( "✔ 1 Drop de " + radioDropSeleccionado);
                             contadorMat++
@@ -445,7 +459,7 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
             let arrayPlantilla = [];
 
             if (sotActa.value.trim() !== "") { 
-                arrayPlantilla.push("📄 *Sot* : "  + sotActa.value);
+                arrayPlantilla.push("🗃️​  *Sot* : "  + sotActa.value);
             }else{
                 
                alert("Digite el Nº SOT");
@@ -454,16 +468,38 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
             }
 
             if (fechaActa.value.trim() !== "") { 
-                arrayPlantilla.push("📅 *Fecha* : "  + fechaActa.value);
+                arrayPlantilla.push("📅​  *Fecha* : "  + fechaActa.value);
             }
+
+
+            let radioServivioSeleccionado  = '';
+            radiosServicioRealizado.forEach(radio => {
+                if (radio.checked) {
+                    radioServivioSeleccionado = radio.value;
+                }
+            });
+
+            if(radioServivioSeleccionado == "insta"){
+                        arrayPlantilla.push("🛠️  *Tipo Actividad* : Instalación");
+            }else if(radioServivioSeleccionado == "post"){
+                        arrayPlantilla.push("🛠️  *Tipo Actividad* : Post Venta");
+            }else if(radioServivioSeleccionado == "post"){
+                        arrayPlantilla.push("🛠️  *Tipo Actividad* : Mantenimiento");
+            }
+            else if(radioServivioSeleccionado == "retiroEQ"){
+                        arrayPlantilla.push("🛠️  *Tipo Actividad* : Retiro Equipos");
+            }
+
+
+
 
             if (tecnicoActa.value.trim() !== "") { 
                     const nombreArray = tecnicoActa.value.split(" ");
                 const mostrarNombre = nombreArray.slice(0, 2).join(" ");
-                    arrayPlantilla.push("👷 *Técnico* : "  + mostrarNombre );
+                    arrayPlantilla.push("👷  *Técnico* : "  + mostrarNombre );
             }
             if (cintilloActa.value.trim() !== "") { 
-                arrayPlantilla.push("🏷️*Nº Cintillo* : "  + cintilloActa.value );
+                arrayPlantilla.push("🔖​ *Nº Cintillo* : "  + cintilloActa.value );
             }
 
 
@@ -476,7 +512,7 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
 
 
             if (textoSeriesInstalados.trim() !== "") { 
-                arrayPlantilla.push("🔁 *EQ Instalados* : "  +  '\n');
+                arrayPlantilla.push("📦 *EQ Instalados* : "  +  '\n');
                 arrayPlantilla.push(textoSeriesInstalados+  '\n');
             }
 
@@ -485,10 +521,39 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                 arrayPlantilla.push(textoSeriesRetirados+  '\n');
             }
 
-                if (textoArrayFerreteria.trim() !== "") { 
-                arrayPlantilla.push("📦 *Materiales* : "  +  '\n');
+            if (textoArrayFerreteria.trim() !== "") { 
+                arrayPlantilla.push("🧰  *Materiales* : "  +  '\n');
                 arrayPlantilla.push(textoArrayFerreteria+  '\n');
             }
+
+
+            if (txtCodigoAutorizacion1.value.trim() !== "") { 
+                arrayPlantilla.push("🔑  *"+ labelCodigoAutorizacion1.value +"* : "  + txtCodigoAutorizacion1.value+'\n');
+                // arrayPlantilla.push(textoArrayFerreteria+  '\n');
+            }
+            if (txtCodigoAutorizacion2.value.trim() !== "") { 
+                arrayPlantilla.push("🔑  *"+ labelCodigoAutorizacion2.value +"* : "  + txtCodigoAutorizacion2.value+'\n');
+                // arrayPlantilla.push(textoArrayFerreteria+  '\n');
+            }
+            if (txtCodigoAutorizacion3.value.trim() !== "") { 
+                arrayPlantilla.push("🔑  *"+ labelCodigoAutorizacion3.value +"* : "  + txtCodigoAutorizacion3.value+'\n');
+                // arrayPlantilla.push(textoArrayFerreteria+  '\n');
+            }
+
+
+
+
+             if (txtObservacionesTecnico.value.trim() !== "") { 
+                arrayPlantilla.push("⚠️ *Observaciónes* : "  +  '\n');
+                arrayPlantilla.push('_'+txtObservacionesTecnico.value+'_'+ '\n');
+                // alert(txtObservacionesTecnico.value);
+                // arrayPlantilla.push(textoArrayFerreteria+  '\n');
+            }
+
+            
+
+
+
 
                 //  arrayPlantilla.replaceAll(',','');
                 //  arrayPlantilla.replaceAll(',','');
@@ -558,20 +623,27 @@ $("#txtFecha").val(fecha.toLocaleDateString());
    document.getElementById("mitextHolder2").placeholder = "";
    document.getElementById("mitextHolder3").placeholder = "";
 
-   document.getElementById("cod1").placeholder = "";
-   document.getElementById("cod2").placeholder = "";
-   document.getElementById("cod3").placeholder = "";
+   txtCodigoAutorizacion1.placeholder = "";
+   txtCodigoAutorizacion2.placeholder = "";
+   txtCodigoAutorizacion3.placeholder = "";
 
 
-alert(txtObservacionesTecnico.value);
-cont_impresion.textContent  = txtObservacionesTecnico.value
-cont_impresion.style.textAlign = "justify";
+// alert(txtObservacionesTecnico.value);
 
-const texto = document.getElementById('coment_tec').value;
-  document.getElementById('coment_tec').textContent = texto;
+
+
+  const textoComentTecnico = document.getElementById('coment_tec').value;
+  document.getElementById('cont_impresion').textContent = textoComentTecnico;
+
+  document.getElementById('coment_tec').style.display = 'none';
+   document.getElementById('cont_impresion').style.display = 'block';
+
+//   document.getElementById('cont_impresion').style.display = 'block'
+
+
+//   txtObservacionesTecnico.style.overflowWrap ="break-word";
  
-
-
+// return false
 
             //    convertir a mayuscula lis input text
                 // const inputs = document.querySelectorAll("input[type='text'], input[type='search']");
@@ -601,6 +673,11 @@ const texto = document.getElementById('coment_tec').value;
             });
 
 
+    document.getElementById('coment_tec').value = textoComentTecnico;
+//   document.getElementById('cont_impresion').textContent = textoComentTecnico;
+
+  document.getElementById('coment_tec').style.display = 'block';
+   document.getElementById('cont_impresion').style.display = 'none';
 
 
 
