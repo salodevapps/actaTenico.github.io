@@ -25,10 +25,11 @@
 $(document).ready(function() {
     Swal.mixin({
                 toast: true,
-                position: "top-end",
+                position: "bottom",
                 showConfirmButton: false,
                 timer: 3000,
                 timerProgressBar: true,
+                 width: '50%',
                 didOpen: (toast) => {
                     toast.onmouseenter = Swal.stopTimer;
                     toast.onmouseleave = Swal.resumeTimer;
