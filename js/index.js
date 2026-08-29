@@ -610,7 +610,26 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
 
             }
 
+
+
+
+
+
+ 
+
+
+
+
+
+
 })
+
+ document.querySelectorAll('input[type="text"], input[type="email"], textarea').forEach(input => {
+  input.addEventListener('blur', function() {
+    this.value = this.value.trim();
+  });
+});
+ 
 // TODO: FIN BOTON COPIAR A PORTAPAPELES
 
 const radios = document.querySelectorAll('input[type="radio"]');
@@ -630,17 +649,27 @@ radios.forEach(radio => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const inputs = document.querySelectorAll("input[type='text'], input[type='search']");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const inputs = document.querySelectorAll("input[type='text'], input[type='search']");
 
-  inputs.forEach(input => {
-    input.addEventListener("input", (e) => {
-      e.target.value = e.target.value.toUpperCase();
+//   const inputsSinEspacio = document.querySelectorAll("input[type='text'], input[type='search'], input[type='textarea']");
+
+//   inputs.forEach(input => {
+//     input.addEventListener("input", (e) => {
+//       e.target.value = e.target.value.toUpperCase();
         
 
-    });
-  });
-});
+//     });
+//   });
+
+//   inputsSinEspacio.forEach(input => {
+//     input.addEventListener("input", (e) => {
+//       e.value = e.value.trim();
+        
+
+//     });
+//   });
+// });
 
 const fecha = new Date();
 

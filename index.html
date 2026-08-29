@@ -43,7 +43,7 @@
 
                           <div class="cont_text">
                             <div class="label">Cod.Cliente</div>
-                            <input type="text" class="cod_cliente" value="">
+                            <input type="number" class="cod_cliente" value="">
                           </div>
 
                         </div>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="caja_texto">
                         <div class="label">SOT</div>
-                        <input type="text" class="txtFecha" value="" id="sot">
+                        <input type="number" class="txtFecha" value="" id="sot">
                     </div>
                     <div class="caja_texto">
                         <div class="label">Hora Inicio</div>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="caja_texto">
                         <div class="label">Nº Cintillo</div>
-                        <input type="text" class="txtFecha" value="" id="txtCintillo">
+                        <input type="number" class="txtFecha" value="" id="txtCintillo">
                     </div>
                     <div class="caja_texto">
                         <div class="label">Plano</div>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="caja_texto">
                         <div class="label">Nº BORNE FAT</div>
-                        <input type="text" class="txtFecha" value="">
+                        <input type="number" class="txtFecha" value="">
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@
                         <div class="cont_radio_buttom">
                             <div class="label">Titular</div>
                             <div class="contenedor_radio" id="contenedor_radio">
-                                <input type="radio" id='radio_titular' name="atendio">
+                                <input type="radio" id='radio_titular' name="atendio" checked>
                                 <label for="radio_titular"><div class="radioVacio"></div></label>
                             </div>
                         </div>
@@ -153,7 +153,7 @@
                             <div class="label">Si</div>
 
                             <div class="contenedor_radio" id="contenedor_radio">
-                                <input type="radio" id='facilidadSi' name="cliente_facilidades">
+                                <input type="radio" id='facilidadSi' name="cliente_facilidades" checked>
                                 <label for="facilidadSi"><div class="radioVacio"></div></label>
                             </div>
 
@@ -907,7 +907,7 @@
 
 
             <span>Dni:</span><input type="text" value="" id="txtDniTecnico"></p>
-          <div class="contratista">  Contratista: <strong>CICSA</strong></div>
+          <div class="contratista">  Contratista: <strong><input type="text" value="Cicsa" id="txtNombreTecnico"></strong></div>
         </div>
         </div>
     </div>
