@@ -23,21 +23,21 @@
 // "•	*COD. DE AUTORIZACIÓN:*"
 // "•	*OBSERVACION (derivaciones):*"; 
 $(document).ready(function() {
-    Swal.mixin({
-                toast: true,
-                position: "bottom",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                 width: '50%',
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                }
-                }).fire({
-                icon: "error",
-                title: "Digite nuemro sot"
-                });
+    // Swal.mixin({
+    //             toast: true,
+    //             position: "bottom",
+    //             showConfirmButton: false,
+    //             timer: 3000,
+    //             timerProgressBar: true,
+    //              width: '50%',
+    //             didOpen: (toast) => {
+    //                 toast.onmouseenter = Swal.stopTimer;
+    //                 toast.onmouseleave = Swal.resumeTimer;
+    //             }
+    //             }).fire({
+    //             icon: "error",
+    //             title: "Digite nuemro sot"
+    //             });
 });
 
  
@@ -609,6 +609,25 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
 
             )
 
+            }else{
+                Swal.mixin({
+                toast: true,
+                // position: "fixed",
+                top: "20px",
+                left :"5%",
+                showConfirmButton: false,
+                timer: 100000,
+                timerProgressBar: true,
+                 width: '50%',
+                 
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                }).fire({
+                icon: "error",
+                title: "Seleccione 1 Servicio Realizado."
+                });
             }
 
 
