@@ -23,21 +23,9 @@
 // "•	*COD. DE AUTORIZACIÓN:*"
 // "•	*OBSERVACION (derivaciones):*"; 
 $(document).ready(function() {
-    // Swal.mixin({
-    //             toast: true,
-    //             position: "bottom",
-    //             showConfirmButton: false,
-    //             timer: 3000,
-    //             timerProgressBar: true,
-    //              width: '50%',
-    //             didOpen: (toast) => {
-    //                 toast.onmouseenter = Swal.stopTimer;
-    //                 toast.onmouseleave = Swal.resumeTimer;
-    //             }
-    //             }).fire({
-    //             icon: "error",
-    //             title: "Digite nuemro sot"
-    //             });
+ 
+// mensajeExito("Descargado con Exito")
+// mesajeToastError("Descargado con Exito")
 });
 
  
@@ -50,7 +38,7 @@ const btnCopiar = document.getElementById("btnCopiarPortapapeles"),
       cintilloActa = document.getElementById("txtCintillo"),
       txtHoraInicio = document.getElementById("txtHoraInicio"),
       txtHoraTermino = document.getElementById("txtHoraTermino"),
-
+      txtCliente = document.getElementById("razon_social"),
 
 
 
@@ -207,14 +195,45 @@ txtHoraInicio.value =`${hora-2}:${min}`;
 txtHoraTermino.value=`${hora}:${min}`;
 
 
+const loadingText = document.querySelector(".loading");
+
+const progress = document.querySelector(".progress");
+
+let dots ="", progressWidth = 0;
+
+const progressInterval = setInterval(()=>{
+        progress.style.width = (progressWidth += 2)+ "%";
+
+        if(progressWidth >=100){
+            // clearInterval(textInterval);
+            clearInterval(progressInterval)
+
+        }
+},500);
+
 
       
 btnCopiar.addEventListener("click", e=>{
 
-if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || radioRetiroEquipos.checked || radioMigracion.checked){
-    alert("GO")
+     if (sotActa.value.trim() == "") { 
+           mensajeToastError("Digite el nº SOT ");
+            return false
+        }
 
-                
+         if (txtCliente.value.trim() == "") { 
+           mensajeToastError("Digite nombre del cliente ");
+            return false
+        }
+
+         if (inputBox.value.trim() == "") { 
+           mensajeToastError("Digite nombre del Tcnico ");
+            return false
+        }
+
+if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || radioRetiroEquipos.checked || radioMigracion.checked){
+
+    
+   
                         serie1Copiado = txtSnEquipoInstalado1.value
                         serie2Copiado = txtSnEquipoInstalado2.value
                         serie3Copiado = txtSnEquipoInstalado3.value
@@ -225,8 +244,6 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                         serie8Copiado = txtSnEquipoInstalado8.value
                         serie9Copiado = txtSnEquipoInstalado9.value
                         serie10Copiado = txtSnEquipoInstalado10.value
-
-
 
                         let equipos_instalados = [];
                         let equipos_retirados = [];
@@ -296,10 +313,6 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                             textoSeriesInstalados.replaceAll(',', '');
                             textoSeriesRetirados.replaceAll(',', '');
 
-                        
-                        // alert(textoSeriesInstalados)
-
-                        // alert(textoSeriesRetirados)
 
                             let contadorMat = 0;
                             let arrayFerreteria = [];
@@ -372,7 +385,6 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
             contadorMat++
                         }
 
-
                         if (txtDivisor2v.value.trim() !== "") {
                             arrayFerreteria.push( "✔ " + txtDivisor2v.value + " "+labelDivisor.trimStart().trimEnd()+ " 2v ") ;
             contadorMat++
@@ -381,9 +393,6 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                             arrayFerreteria.push( "✔ " + txtDivisor3v.value + " "+labelDivisor.trimStart().trimEnd()+ " 3v ") ;
                             contadorMat++ 
                         }
-
-
-
 
 
                         if (txtCintilloRojo.value.trim() !== "") {
@@ -414,12 +423,6 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                             }
                         });
 
-       
-
-                        
-                     
-
-
                         if (radioDropSeleccionado.trim() !== "") {
                             arrayFerreteria.push( "✔ 1 Drop de " + radioDropSeleccionado);
                             contadorMat++
@@ -434,7 +437,7 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                             }
                         });
 
-                        console.log(radioServicioRealizado)
+                        // console.log(radioServicioRealizado)
 
 
 
@@ -453,7 +456,8 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                                     textoCodSol.replaceAll(',','');
                                     console.log(textoCodSol);
                             }else{ 
-                                        alert('Ingrese por lo menos 1 cod. solucion');
+                                       mensajeToastError("Por lo menos digite 1 código de solución");
+                                    //    mesajeToastError("Por lo menos digite 1 codigo de solucion")
                             }
                         }
 
@@ -499,20 +503,7 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                 arrayPlantilla.push("📌​  *Sot* : "  + sotActa.value);
             }else{
                 
-               Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                }
-                }).fire({
-                icon: "error",
-                title: "Digite nuemro sot"
-                });
+              mesajeToastError("Digite el Nº SOT");
             
                  return false;
             }
@@ -604,30 +595,26 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
             var textoArrayPlantilla =arrayPlantilla.join('\n')
             console.log(arrayPlantilla)
             
-            let  texto  = navigator.clipboard.writeText( 
-            textoArrayPlantilla
+                    try { 
+                        
+                        let  texto  = navigator.clipboard.writeText( 
+                            textoArrayPlantilla
+                                
+                            )
+                            mensajeExito("Plantilla en Portapapeles.");
+                    } catch (error) {
+                   mesajeToastError("Hubo un error intente Nuevamente. TryCatch");
+                    } finally {
+                    // Se ejecuta siempre
+                    console.log("Proceso finalizado.");
+                    }
 
-            )
+
+
+           
 
             }else{
-                Swal.mixin({
-                toast: true,
-                // position: "fixed",
-                top: "20px",
-                left :"5%",
-                showConfirmButton: false,
-                timer: 100000,
-                timerProgressBar: true,
-                 width: '50%',
-                 
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                }
-                }).fire({
-                icon: "error",
-                title: "Seleccione 1 Servicio Realizado."
-                });
+                mensajeToastError("Seleccione Servicio Realizado.");
             }
 
 
@@ -1076,6 +1063,53 @@ function seleccionCodSolucion2(list){
 
 // --------
 
+
+function mensajeToastError(mensaje){
+    // var mensaje = "hola";
+
+const parrafo = document.getElementById("textoToast");
+parrafo.textContent = mensaje;
+
+        const elemento = document.getElementById('mensajeToast');
+          // 1. Aparecer después de 3 segundos (3000 milisegundos)
+        setTimeout(() => {
+            elemento.style.display = 'flex'; // Lo metemos en el flujo de la página
+            
+            // Usamos un pequeño delay para que el navegador aplique el display antes de la transición
+            setTimeout(() => {
+                elemento.classList.add('visible');
+            }, 50); 
+
+        }, 0);
+
+        // 2. Desaparecer después de 8 segundos en total (8000 milisegundos desde el inicio)
+                // Esto significa que estará visible durante 5 segundos exactos
+        setTimeout(() => {
+            elemento.classList.remove('visible'); // Inicia efecto de desvanecido
+            
+            // Esperamos a que termine la animación CSS (0.5s) para quitarlo del display por completo
+            setTimeout(() => {
+                elemento.style.display = 'none';
+            }, 500);
+
+        }, 2000);
+
+
+
+    return mensaje
+}
+
+
+function mensajeExito(mensaje){
+        Swal.fire({
+                position: "center",
+                icon: "success",
+                title: mensaje,
+                showConfirmButton: false,
+                timer: 1500
+        });
+        return mensaje;
+}
 
 
 

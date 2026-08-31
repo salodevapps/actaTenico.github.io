@@ -2,20 +2,24 @@
 
 .swal2-toast{
     box-sizing:border-box;
-    grid-column:1/4 !important;
+    /* grid-column:1/4 !important;
     grid-row:1/4 !important;
-    grid-template-columns:min-content auto min-content;padding:1em;
+    grid-template-columns:min-content auto min-content;padding:1em; */
     overflow-y:hidden;
     border:var(--swal2-toast-border);
     background:var(--swal2-background);
     box-shadow:var(--swal2-toast-box-shadow);
     pointer-events:auto;
-    position:fixed;
-    top: 2px;
-    left: 10px;
-     width: 220px;
-  height: 100px;
-  border: 1px solid red;
+    position:fixed !important;
+    bottom: 10% !important;
+    /* top: 2px !important; */
+    left: 10px !important;
+     width: 50vw !important;
+     margin:10px !important;
+     padding: 30px !important;
+  height: 100px !important;
+  border: 3px solid red !important;
+  border-right: 5px solid green !important;
 }
 
 .swal2-toast>*{grid-column:2}.swal2-toast h2:where(.swal2-title){margin:.5em 1em;padding:0;font-size:1em;text-align:initial}.swal2-toast .swal2-loading{justify-content:center}

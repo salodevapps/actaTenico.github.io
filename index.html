@@ -2,12 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <title>Acta de servicio</title>
 
 
     <link rel="stylesheet" href="./css/acta.css">
     <link rel="stylesheet" href="./sweetAlert2/sweetalert2.min.css">
+  
+
+
+
+        <script src="./font/icons/fontawsome.js"></script>
+      <script src="https://kit.fontawesome.com/efa1b37ea8.js" crossorigin="anonymous"></script>
+
     <script src="./jquery/jquery.min.js"></script>
     
     <script src="./canvasCapture/canvasCapture.min.js"></script>
@@ -61,7 +70,7 @@
 
                             <div class="cont_text">
                                 <div class="label provincia">Provincia</div>
-                                <input type="text" class="txtProvincia" value="AREQUIPA">
+                                <input type="text" class="txtProvincia" value="">
                             </div>
                         </div>
                     </div>
@@ -912,13 +921,26 @@
         </div>
     </div>
 
-<button id="btnFotoActa" class="btnFotoActa"  >Descargar Acta</button>
+<button id="btnFotoActa" class="btnFotoActa"  ><i class="fa-solid fa-download"></i> Descargar</button>
 
-<button id="btnCopiarPortapapeles" class="btnCopiarPortapapeles"  >Copiar Plantilla a Portapapeles</button>
+<button id="btnCopiarPortapapeles" class="btnCopiarPortapapeles"> <i class="fa-solid fa-clipboard"></i>Copiar Plantilla </button>
 <span id="plantilla">
 
 
 </span>
+
+
+<div class="cont_mensaje" id="mensajeToast">
+    <span><i class="fa-solid fa-circle-exclamation"></i><p id="textoToast"></p> </span>
+    <div class="progress-bar">
+        <div class="progress-line"></div>
+    </div>
+</div>
+
+
+
+
+
 
 
 <div class="contenedor_img_acta" id="contenedor_img_acta"></div>
