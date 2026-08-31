@@ -485,10 +485,10 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
 
         
 
-  if (inputBox.value.trim() == "") { 
-           mensajeToastError("Digite nombre del Tecnico ");
-            return false
-        }
+//   if (inputBox.value.trim() == "") { 
+//            mensajeToastError("Digite nombre del Tecnico ");
+//             return false
+//         }
 
 
             let arrayPlantilla = [];
@@ -641,6 +641,38 @@ function validacionActa(){
            mensajeToastError("Digite nombre del Tecnico ");
             return false
         }
+
+
+                      let radioServicioRealizado  = '';
+                        servicioRealizado.forEach(radio => {
+                            if (radio.checked) {
+                                radioServicioRealizado = radio.value;
+                            }
+                        });
+
+                        if(radioServicioRealizado.trim()== ""){
+                            mensajeToastError("Seleccione Servicio Realizado. ");
+                            return false
+                        }
+                        // console.log(radioServicioRealizado)
+
+
+
+                        let arrayCodSol = [];
+                        if (radioServicioRealizado.trim() == "manto") {
+
+                            if (txtCodSolucion1.value.trim() !== "" ||txtCodSolucion2.value.trim() !== "") { 
+                              
+                            }else{ 
+                                       mensajeToastError("Por lo menos digite 1 código de solución");
+                                       return false;
+                            }
+                        }
+
+
+
+
+
 }
 
 
@@ -672,27 +704,25 @@ radios.forEach(radio => {
   });
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const inputs = document.querySelectorAll("input[type='text'], input[type='search']");
+document.addEventListener("DOMContentLoaded", () => {
+  const inputs = document.querySelectorAll("input[type='text'], input[type='search']");
 
-//   const inputsSinEspacio = document.querySelectorAll("input[type='text'], input[type='search'], input[type='textarea']");
+  const inputsSinEspacio = document.querySelectorAll("input[type='text'], input[type='search'], input[type='textarea']");
 
-//   inputs.forEach(input => {
-//     input.addEventListener("input", (e) => {
-//       e.target.value = e.target.value.toUpperCase();
+  inputs.forEach(input => {
+    input.addEventListener("input", (e) => {
+      e.target.value = e.target.value.toUpperCase();
         
 
-//     });
-//   });
+    });
+  });
 
-//   inputsSinEspacio.forEach(input => {
-//     input.addEventListener("input", (e) => {
-//       e.value = e.value.trim();
-        
-
-//     });
-//   });
-// });
+  inputsSinEspacio.forEach(input => {
+    input.addEventListener("input", (e) => {
+      e.value = e.value.trim();
+    });
+  });
+});
 
 const fecha = new Date();
 
@@ -711,6 +741,13 @@ $("#txtFecha").val(fecha.toLocaleDateString());
 
 
    function generar_actaImagen(sot){
+
+resultado  =validacionActa();
+
+    if(resultado ==false){
+        return false;
+    }
+
           $objetivo = document.querySelector("#acta");
           $contenedorCanvas = document.querySelector("#contenedor_img_acta"); // En dónde ponemos el elemento canvas
     
@@ -722,32 +759,13 @@ $("#txtFecha").val(fecha.toLocaleDateString());
    txtCodigoAutorizacion2.placeholder = "";
    txtCodigoAutorizacion3.placeholder = "";
 
-
-// alert(txtObservacionesTecnico.value);
-
-
-
   const textoComentTecnico = document.getElementById('coment_tec').value;
   document.getElementById('cont_impresion').textContent = textoComentTecnico;
 
   document.getElementById('coment_tec').style.display = 'none';
    document.getElementById('cont_impresion').style.display = 'block';
 
-//   document.getElementById('cont_impresion').style.display = 'block'
 
-
-//   txtObservacionesTecnico.style.overflowWrap ="break-word";
- 
-// return false
-
-            //    convertir a mayuscula lis input text
-                // const inputs = document.querySelectorAll("input[type='text'], input[type='search']");
-
-                // inputs.forEach(input => {
-                //     input.addEventListener("input", (e) => {
-                //     e.target.value = e.target.value.toUpperCase();
-                //     });
-                // });
           html2canvas($objetivo,{
               dpi    : window.devicePixelRatio*1,
               scale  :1.5,
