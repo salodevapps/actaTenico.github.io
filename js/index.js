@@ -215,20 +215,11 @@ const progressInterval = setInterval(()=>{
       
 btnCopiar.addEventListener("click", e=>{
 
-     if (sotActa.value.trim() == "") { 
-           mensajeToastError("Digite el nº SOT ");
-            return false
-        }
+    resultado  =validacionActa();
 
-         if (txtCliente.value.trim() == "") { 
-           mensajeToastError("Digite nombre del cliente ");
-            return false
-        }
-
-         if (inputBox.value.trim() == "") { 
-           mensajeToastError("Digite nombre del Tcnico ");
-            return false
-        }
+    if(resultado ==false){
+        return false;
+    }
 
 if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || radioRetiroEquipos.checked || radioMigracion.checked){
 
@@ -494,7 +485,10 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
 
         
 
-
+  if (inputBox.value.trim() == "") { 
+           mensajeToastError("Digite nombre del Tecnico ");
+            return false
+        }
 
 
             let arrayPlantilla = [];
@@ -630,6 +624,28 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
 
 
 })
+
+
+function validacionActa(){
+     if (sotActa.value.trim() == "") { 
+           mensajeToastError("Digite el nº SOT ");
+            return false
+        }
+
+         if (txtCliente.value.trim() == "") { 
+           mensajeToastError("Digite nombre del Cliente ");
+            return false
+        }
+
+         if (inputBox.value.trim() == "") { 
+           mensajeToastError("Digite nombre del Tecnico ");
+            return false
+        }
+}
+
+
+
+
 
  document.querySelectorAll('input[type="text"], input[type="email"], textarea').forEach(input => {
   input.addEventListener('blur', function() {
