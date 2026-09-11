@@ -201,15 +201,15 @@ const progress = document.querySelector(".progress");
 
 let dots ="", progressWidth = 0;
 
-const progressInterval = setInterval(()=>{
-        progress.style.width = (progressWidth += 2)+ "%";
+// const progressInterval = setInterval(()=>{
+//         progress.style.width = (progressWidth += 2)+ "%";
 
-        if(progressWidth >=100){
-            // clearInterval(textInterval);
-            clearInterval(progressInterval)
+//         if(progressWidth >=100){
+//             // clearInterval(textInterval);
+//             clearInterval(progressInterval)
 
-        }
-},500);
+//         }
+// },500);
 
 
       
@@ -491,6 +491,8 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
 //         }
 
 
+
+
             let arrayPlantilla = [];
 
             if (sotActa.value.trim() !== "") { 
@@ -518,32 +520,57 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                         arrayPlantilla.push("🛠️  *Tipo Actividad* : Instalación");
             }else if(radioServivioSeleccionado == "post"){
                         arrayPlantilla.push("🛠️  *Tipo Actividad* : Post Venta");
-            }else if(radioServivioSeleccionado == "post"){
+            }else if(radioServivioSeleccionado == "manto"){
                         arrayPlantilla.push("🛠️  *Tipo Actividad* : Mantenimiento");
             }
             else if(radioServivioSeleccionado == "retiroEQ"){
                         arrayPlantilla.push("🛠️  *Tipo Actividad* : Retiro Equipos");
             }
 
-
+            console.log(radioServivioSeleccionado + "jojojojjojojojo");
 
 
             if (tecnicoActa.value.trim() !== "") { 
                     const nombreArray = tecnicoActa.value.split(" ");
                 const mostrarNombre = nombreArray.slice(0, 2).join(" ");
-                    arrayPlantilla.push("👷  *Técnico* : "  + mostrarNombre );
+                    arrayPlantilla.push("👷  *Técnico* : "  + mostrarNombre +  '\n');
+
             }
+
+
+
             if (cintilloActa.value.trim() !== "") { 
-                arrayPlantilla.push("🔖​ *Nº Cintillo* : "  + cintilloActa.value );
+                arrayPlantilla.push("🔖​ *Nº Cintillo* : "  + cintilloActa.value +  '\n' );
             }
 
 
-            if (radioServicioRealizado.trim() == "manto") {
-                        if (textoCodSol.trim() !== "") { 
-                            arrayPlantilla.push('\n'+ "💡 *Cod. Solucion* : "  +  '\n');
-                            arrayPlantilla.push(textoCodSol +  '\n');
-                        }
+
+            
+
+
+
+            // let arrayCodSol = [];
+                        if (radioServicioRealizado.trim() == "manto") {
+
+                            // if (txtCodSolucion1.value.trim() !== "" ||txtCodSolucion2.value.trim() !== "") { 
+                            //    arrayPlantilla.push("💡​ *Cod. solución* : " +  '\n' + textoCodSol+  '\n' );
+                            // }
+            // 
+            }else{ 
+                                       mensajeToastError("Por lo menos digite 1 código de solución");
+                                       return false;
+                            }
+
+
+            if (textoCodSol.trim() !== "") { 
+                arrayPlantilla.push("💡​ *Cod. solución* : " +  '\n' + textoCodSol+  '\n' );
             }
+
+
+
+
+
+
 
 
             if (textoSeriesInstalados.trim() !== "") { 
@@ -654,20 +681,20 @@ function validacionActa(){
                             mensajeToastError("Seleccione Servicio Realizado. ");
                             return false
                         }
-                        // console.log(radioServicioRealizado)
+                        console.log(radioServicioRealizado)
 
 
 
-                        let arrayCodSol = [];
-                        if (radioServicioRealizado.trim() == "manto") {
+                        // let arrayCodSol = [];
+                        // if (radioServicioRealizado.trim() == "manto") {
 
-                            if (txtCodSolucion1.value.trim() !== "" ||txtCodSolucion2.value.trim() !== "") { 
+                        //     if (txtCodSolucion1.value.trim() !== "" ||txtCodSolucion2.value.trim() !== "") { 
                               
-                            }else{ 
-                                       mensajeToastError("Por lo menos digite 1 código de solución");
-                                       return false;
-                            }
-                        }
+                        //     }else{ 
+                        //                mensajeToastError("Por lo menos digite 1 código de solución");
+                        //                return false;
+                        //     }
+                        // }
 
 
 
@@ -730,6 +757,13 @@ $("#txtFecha").val(fecha.toLocaleDateString());
 
   $(".btnFotoActa").click(function(){
 
+
+
+   
+
+
+
+
     console.log("Generar imagen del acta");
     let  sot = $("#sot").val();
     generar_actaImagen(sot);
@@ -742,7 +776,22 @@ $("#txtFecha").val(fecha.toLocaleDateString());
 
    function generar_actaImagen(sot){
 
+ 
+
+
+
+
 resultado  =validacionActa();
+
+
+          
+
+
+
+
+
+
+
 
     if(resultado ==false){
         return false;
@@ -850,6 +899,12 @@ const tecnicos = [
     },{
         nombre: "VICTOR JHONY SAIRE QUISPE 00000000",    
         dni: "23569863" ,
+    },{
+        nombre: "JHON MENDOZA LOA 74763435",    
+        dni: "74763435" ,
+    },{
+        nombre: "EDELSON PAUCCAR AÑO 60651726",    
+        dni: "60651726" ,
     }
 ];
 
