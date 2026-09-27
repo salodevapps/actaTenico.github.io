@@ -1032,12 +1032,18 @@ font-style: italic;
 }
 
 .mensaje_alert{
-    background-color: #eafca8;
-    border: 1px solid rgb(239, 190, 13);
+    background-color: #ff5d5529;
+    border: 1px solid rgba(255, 32, 32, 0.488);
     padding: 5px;
     border-radius: 5px;
     font-size: 15px;
     margin-bottom: 4px;
+}
+
+.mensaje_alert .titulo{
+    color: brown;
+    font-weight: bold;
+    font-style: italic;
 }
 
 /* Animación del movimiento */
