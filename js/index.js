@@ -10,22 +10,9 @@
   console.log(`${hora}:${min}`)
 
 
-// let    plantillaWSP = "SOT" ;
-// "•  *FECHA:*"
-// "•	*TÉCNICO:*" 
-// "•	*# CINTILLO INST:*" 
-// "•	*# CINTILLO RET:*"
-// "•	*COD. SOLUCION:*" 
-// "•	*S/N EQ. INSTALADO:*" 
-// "•	*S/N EQ. RETIRADO:*"
-// "•	*ADICIONALES (mat. instalados):*"
-// "•	*MAT. NO RECURRENTE (drop,switch):*"
-// "•	*COD. DE AUTORIZACIÓN:*"
-// "•	*OBSERVACION (derivaciones):*"; 
+/
 $(document).ready(function() {
  
-// mensajeExito("Descargado con Exito")
-// mesajeToastError("Descargado con Exito")
 });
 
  
@@ -58,16 +45,7 @@ radioManto = document.getElementById("servicioManto"),
 radioRetiroEquipos = document.getElementById("servicioRetiro");
 radioMigracion = document.getElementById("servicioMigracion");
 
-// servicioMigracion
-// radioInstalacion = document.getElementById("servicioInsta"),
-
-
-
-
-    //   radioInstalacion = document.getElementById("servicioRealizado"),
    const servicioRealizado  = document.querySelectorAll('input[name="servicioRealizado"]');
-
-     
 
     txtCableCoaxialNegro = document.getElementById("txtCableCoaxialNegro"),
     txtCableCoaxialBlanco = document.getElementById("txtCableCoaxialBlanco"),
@@ -136,12 +114,6 @@ radioMigracion = document.getElementById("servicioMigracion");
     labelGrapasN6 = document.getElementById("labelGrapasN6").textContent;
     labelControlFTTH = document.getElementById("labelControlFTTH").textContent;
 
-
-
-
-
-
-
     radioInstalado1 = document.getElementById("instalado1"),
     radioInstalado2 = document.getElementById("instalado2"),
     radioInstalado3 = document.getElementById("instalado3"),
@@ -184,8 +156,7 @@ radioMigracion = document.getElementById("servicioMigracion");
     txtCodigoAutorizacion2 =document.getElementById("txtCodigoAutorizacion2");
     txtCodigoAutorizacion3 =document.getElementById("txtCodigoAutorizacion3");
 
-//   txtSnEquipoInstalado6 =document.getElementById("txtSnEquipoInstalado6");
-//   txtSnEquipoInstalado7 =document.getElementById("txtSnEquipoInstalado7");
+
 
     txtObservacionesTecnico =document.getElementById("coment_tec");
     cont_impresion =document.getElementById("cont_impresion");
@@ -201,16 +172,6 @@ const progress = document.querySelector(".progress");
 
 let dots ="", progressWidth = 0;
 
-// const progressInterval = setInterval(()=>{
-//         progress.style.width = (progressWidth += 2)+ "%";
-
-//         if(progressWidth >=100){
-//             // clearInterval(textInterval);
-//             clearInterval(progressInterval)
-
-//         }
-// },500);
-
 
       
 btnCopiar.addEventListener("click", e=>{
@@ -220,6 +181,12 @@ btnCopiar.addEventListener("click", e=>{
     if(resultado ==false){
         return false;
     }
+
+
+
+
+
+
 
 if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || radioRetiroEquipos.checked || radioMigracion.checked){
 
@@ -447,7 +414,7 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                                     textoCodSol.replaceAll(',','');
                                     console.log(textoCodSol);
                             }else{ 
-                                       mensajeToastError("Por lo menos digite 1 código de solución");
+                                       mensajeToastError("Por lo menos digite 1 código de soluciónnnnnnn");
                                     //    mesajeToastError("Por lo menos digite 1 codigo de solucion")
                             }
                         }
@@ -525,9 +492,11 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
             }
             else if(radioServivioSeleccionado == "retiroEQ"){
                         arrayPlantilla.push("🛠️  *Tipo Actividad* : Retiro Equipos");
+            } else if(radioServivioSeleccionado == "migracion"){
+                        arrayPlantilla.push("🛠️  *Tipo Actividad* : Migración");
             }
 
-            console.log(radioServivioSeleccionado + "jojojojjojojojo");
+            // console.log(radioServivioSeleccionado + "jojojojjojojojo");
 
 
             if (tecnicoActa.value.trim() !== "") { 
@@ -543,28 +512,27 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                 arrayPlantilla.push("🔖​ *Nº Cintillo* : "  + cintilloActa.value +  '\n' );
             }
 
-
-
             
 
-
-
             // let arrayCodSol = [];
-                        if (radioServicioRealizado.trim() == "manto") {
+             if (radioServicioRealizado.trim() == "manto") {
 
                             // if (txtCodSolucion1.value.trim() !== "" ||txtCodSolucion2.value.trim() !== "") { 
                             //    arrayPlantilla.push("💡​ *Cod. solución* : " +  '\n' + textoCodSol+  '\n' );
                             // }
             // 
-            }else{ 
-                                       mensajeToastError("Por lo menos digite 1 código de solución");
-                                       return false;
-                            }
-
-
-            if (textoCodSol.trim() !== "") { 
+              if (textoCodSol.trim() !== "") { 
                 arrayPlantilla.push("💡​ *Cod. solución* : " +  '\n' + textoCodSol+  '\n' );
+                }
+            }else{ 
+                        // mensajeToastError("Por lo menos digite 1 código de solucióness");
+                        // return false;
             }
+
+
+          
+
+
 
 
 
@@ -634,9 +602,9 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
 
            
 
-            }else{
-                mensajeToastError("Seleccione Servicio Realizado.");
-            }
+    }else{
+        mensajeToastError("Seleccione Servicio Realizado.");
+    }
 
 
 
