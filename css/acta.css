@@ -1024,6 +1024,14 @@ font-style: italic;
   animation: load 6s infinite linear;
 }
 
+
+
+.tabla tbody tr:hover {
+  background-color: rgba(255, 242, 122, 0.3);
+}
+
+
+
 /* Animación del movimiento */
 @keyframes load {
   0% {
