@@ -1031,7 +1031,14 @@ font-style: italic;
   border: 0px solid rgb(168, 71, 42);
 }
 
-
+.mensaje_alert{
+    background-color: #eafca8;
+    border: 1px solid rgb(239, 190, 13);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
 
 /* Animación del movimiento */
 @keyframes load {
