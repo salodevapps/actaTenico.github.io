@@ -1038,6 +1038,9 @@ font-style: italic;
     border-radius: 5px;
     font-size: 15px;
     margin-bottom: 4px;
+    margin-top: -7px;
+    display: none;
+   
 }
 
 .mensaje_alert .titulo{
@@ -1049,7 +1052,7 @@ font-style: italic;
 .mensaje_alert .msg{
     color: rgba(2, 2, 2, 0.804);
     font-weight: bold;
-    font-style:italic;
+    font-style:oblique;
 }
 
 /* Animación del movimiento */

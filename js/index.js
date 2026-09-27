@@ -10,10 +10,29 @@
   console.log(`${hora}:${min}`)
 
 
-/
+
+
+
+
+
+
 $(document).ready(function() {
  
 });
+
+
+function alert_msg(mensaje){
+  const caja_mensaje = document.getElementById("mensaje_alert");
+    const msg = document.getElementById("msg");
+// alert_msg("como estas");
+  caja_mensaje.style.display = "block";   
+        msg.innerHTML =mensaje;
+   setTimeout(() => {
+            caja_mensaje.style.display = "none";
+        }, 3000);
+  
+     
+}
 
  
 
@@ -415,6 +434,8 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                                     console.log(textoCodSol);
                             }else{ 
                                        mensajeToastError("Por lo menos digite 1 código de soluciónnnnnnn");
+
+                                        alert_msg("Por lo menos digite 1 código de solución")
                                     //    mesajeToastError("Por lo menos digite 1 codigo de solucion")
                             }
                         }
@@ -467,6 +488,7 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
             }else{
                 
               mesajeToastError("Digite el Nº SOT");
+               alert_msg("Digite el Nº SOT")
             
                  return false;
             }
@@ -593,6 +615,7 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
                             mensajeExito("Plantilla en Portapapeles.");
                     } catch (error) {
                    mesajeToastError("Hubo un error intente Nuevamente. TryCatch");
+                    alert_msg("Hubo un error intente Nuevamente. TryCatch")
                     } finally {
                     // Se ejecuta siempre
                     console.log("Proceso finalizado.");
@@ -604,6 +627,7 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
 
     }else{
         mensajeToastError("Seleccione Servicio Realizado.");
+         alert_msg("Seleccione Servicio Realizado.")
     }
 
 
@@ -624,16 +648,19 @@ if(radioInstalacion.checked || radioPostVenta.checked || radioManto.checked || r
 function validacionActa(){
      if (sotActa.value.trim() == "") { 
            mensajeToastError("Digite el nº SOT ");
+            alert_msg("Digite el nº SOT ")
             return false
         }
 
          if (txtCliente.value.trim() == "") { 
            mensajeToastError("Digite nombre del Cliente ");
+           alert_msg("Digite nombre del Cliente ")
             return false
         }
 
          if (inputBox.value.trim() == "") { 
            mensajeToastError("Digite nombre del Tecnico ");
+           alert_msg("Digite nombre del Tecnico ")
             return false
         }
 
@@ -647,6 +674,8 @@ function validacionActa(){
 
                         if(radioServicioRealizado.trim()== ""){
                             mensajeToastError("Seleccione Servicio Realizado. ");
+                            alert_msg("Seleccione Servicio Realizado.")
+                            
                             return false
                         }
                         console.log(radioServicioRealizado)
