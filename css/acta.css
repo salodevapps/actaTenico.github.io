@@ -1041,9 +1041,15 @@ font-style: italic;
 }
 
 .mensaje_alert .titulo{
-    color: brown;
+    color: rgba(255, 32, 32, 0.488);
     font-weight: bold;
     font-style: italic;
+}
+
+.mensaje_alert .msg{
+    color: rgba(2, 2, 2, 0.804);
+    font-weight: bold;
+    font-style:italic;
 }
 
 /* Animación del movimiento */
