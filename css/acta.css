@@ -1028,7 +1028,7 @@ font-style: italic;
 
 .tabla tbody tr:hover {
   background-color: rgba(255, 221, 99, 0.908);
-  border: 2px solid black;
+  border: 2px solid rgb(224, 60, 11);
 }
 
 
