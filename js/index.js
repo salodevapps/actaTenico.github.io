@@ -857,8 +857,8 @@ const tecnicos = [
         nombre: "ARAPA BERNEDO RAUL ROSSEL 00000000",
         dni: "23569863" ,
     },{
-        nombre: "CASTILLO CHALLA JAIME JUNNIOR 00000000",    
-        dni: "23569863" ,
+        nombre: "VALERIO ALVAREZ HUAMANI 71461339",    
+        dni: "71461339" ,
     },{
         nombre: "FLORES FLORES JULIO ALBERTO 00000000",    
         dni: "23569863" ,
